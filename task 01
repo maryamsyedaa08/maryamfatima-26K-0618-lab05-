@@ -1,0 +1,109 @@
+#include <stdio.h>
+
+int main()
+{
+    int depart;
+    int theory, practical;
+    float attendance;
+    int theoryReq, practicalReq, attendanceReq;
+    int rem;
+ 
+    printf(" University Examination Result System\n");
+
+    printf("\nSelect Department:\n");
+    printf("1. Computer Science\n");
+    printf("2. Electrical Engineering\n");
+    printf("3. Business Administration\n");
+    printf("4. Mathematics\n");
+
+    printf("\nEnter department number(1-4):");
+    scanf("%d", &depart);
+  
+    printf("Enter theory marks: ");
+    scanf("%d", &theory);
+
+    printf("Enter practical marks: ");
+    scanf("%d", &practical);
+
+    printf("Enter attendance percentage: ");
+    scanf("%f", &attendance);
+
+    switch (depart)
+    {
+        case 1:
+            printf("\nDepartment: Computer Science\n");
+            theoryReq = 50;
+            practicalReq = 40;
+            attendanceReq = 75;
+            break;
+
+        case 2:
+            printf("\nDepartment: Electrical Engineering\n");
+            theoryReq = 55;
+            practicalReq = 45;
+            attendanceReq = 75;
+            break;
+
+        case 3:
+            printf("\nDepartment: Business Administration\n");
+            theoryReq = 50;
+            practicalReq = 35;
+            attendanceReq = 80;
+            break;
+
+        case 4:
+            printf("\nDepartment: Mathematics\n");
+            theoryReq = 60;
+            practicalReq = 40;
+            attendanceReq = 75;
+            break;
+
+        default:
+            printf("Invalid department!\n");
+            return 0;
+    }
+
+    rem = theory % 3;
+
+    printf("\nFINAL REPORT\n");
+
+    printf("Theory Marks: %d\n", theory);
+    printf("Practical Marks: %d\n", practical);
+    printf("Attendance: %.2f%%\n", attendance);
+
+    printf("\nApplicable Passing Requirements:\n");
+    printf("Theory: %d marks\n", theoryReq);
+    printf("Practical: %d marks\n", practicalReq);
+    printf("Attendance: %d%%\n", attendanceReq);
+
+    if (theory >= theoryReq &&
+        practical >= practicalReq &&
+        attendance >= attendanceReq)
+    {
+        printf("\nResult: Passed\n");
+    }
+    else
+    {
+        printf("\nResult: Failed\n");
+    }
+
+    printf("Distinction: %s\n",
+           (theory >= 85 && practical >= 80 && attendance >= 90)
+           ? "Eligible"
+           : "Not Eligible");
+
+    if (rem == 0)
+    {
+        printf("Seat Category: A\n");
+    }
+    else if (rem == 1)
+    {
+        printf("Seat Category: B\n");
+    }
+    else
+    {
+        printf("Seat Category: C\n");
+    }
+
+    return 0;
+}
